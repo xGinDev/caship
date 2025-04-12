@@ -2,7 +2,6 @@ import { SafeAreaView, Text } from "react-native";
 import { useEffect, useState } from "react";
 import { Session } from "@supabase/supabase-js";
 import { supabase } from "@/utils/supabase";
-import Auth from "@/components/Auth";
 
 export default function HomeScreen() {
   const [session, setSession] = useState<Session | null>(null)
@@ -16,8 +15,7 @@ export default function HomeScreen() {
   }, [])
 
   return (
-    <SafeAreaView className="">
-      <Auth />
+    <SafeAreaView className="bg-primary h-full flex flex-col justify-center items-center">
       {session && session.user && <Text>{session.user.id}</Text>}
     </SafeAreaView>
   );

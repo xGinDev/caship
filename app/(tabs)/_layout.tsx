@@ -1,6 +1,5 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
 
 export default function TabLayout() {
 
@@ -8,17 +7,20 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarStyle: Platform.select({
-          ios: {
-            position: 'absolute',
-          },
-          default: {},
-        }),
+        tabBarStyle: {
+         /*  display: 'none' */
+        }
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home'
+          title: 'Home',
+        }}
+      />
+      <Tabs.Screen
+        name="login"
+        options={{
+          /* href: null */
         }}
       />
     </Tabs>

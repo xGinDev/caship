@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Button, StyleSheet, TextInput, View } from 'react-native'
+import { Text, TextInput, View, Alert, TouchableOpacity } from 'react-native'
 import { supabase } from '../utils/supabase'
 
 export default function Auth() {
@@ -34,45 +34,44 @@ export default function Auth() {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={[styles.verticallySpaced, styles.mt20]}>
-                <TextInput
-                    onChangeText={(text) => setEmail(text)}
-                    value={email}
-                    placeholder="email@address.com"
-                    autoCapitalize={'none'}
-                />
+        <View className=' h-full flex flex-col justify-center items-center gap-8'>
+            <View>
+                <Text className='font-bold text-3xl text-white'>¡Bienvenido a Caship!</Text>
+                <Text className='text-white text-center mt-2 italic'>Comparte metas, no deudas.</Text>
             </View>
-            <View style={styles.verticallySpaced}>
-                <TextInput
-                    onChangeText={(text) => setPassword(text)}
-                    value={password}
-                    secureTextEntry={true}
-                    placeholder="Password"
-                    autoCapitalize={'none'}
-                />
-            </View>
-            <View style={[styles.verticallySpaced, styles.mt20]}>
-                <Button title="Sign in" disabled={loading} onPress={() => signInWithEmail()} />
-            </View>
-            <View style={styles.verticallySpaced}>
-                <Button title="Sign up" disabled={loading} onPress={() => signUpWithEmail()} />
+            <View>
+                <Text className='text-white'>Inicia sesión o crea una cuenta para continuar</Text>
+                <View className='flex flex-col gap-4 mt-8'>
+                    <TextInput
+                        onChangeText={(text) => setEmail(text)}
+                        value={email}
+                        placeholder="email@address.com"
+                        autoCapitalize={'none'}
+                        className='border border-white rounded-md py-3 px-4 bg-white'
+                    />
+                    <TextInput
+                        onChangeText={(text) => setPassword(text)}
+                        value={password}
+                        placeholder="Contraseña"
+                        secureTextEntry
+                        className='border border-white rounded-md py-3 px-4 bg-white'
+                    />
+                </View>
+                <View className='flex flex-col gap-4 mt-8'>
+                    <TouchableOpacity
+                        onPress={signInWithEmail}
+                        className='rounded-md py-3 px-4 bg-backgroundDark'
+                    >
+                        <Text className='text-white text-center font-semibold'>Iniciar sesión</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={signUpWithEmail}
+                        className='rounded-md py-3 px-4 bg-backgroundDark'
+                    >
+                        <Text className='text-white text-center font-semibold'>Registrarse</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 40,
-        padding: 12,
-    },
-    verticallySpaced: {
-        paddingTop: 4,
-        paddingBottom: 4,
-        alignSelf: 'stretch',
-    },
-    mt20: {
-        marginTop: 20,
-    },
-})
