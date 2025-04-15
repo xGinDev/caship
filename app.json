@@ -30,7 +30,14 @@
       "favicon": "./assets/images/logo.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-localization",
+      "expo-font",
+      {
+        "fonts": [
+          "./assets/fonts/Quicksand.ttf"
+        ]
+      }
     ],
     "experiments": {
       "typedRoutes": true

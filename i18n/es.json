@@ -1,0 +1,9 @@
+{
+    "auth": {
+        "title": "¡Bienvenido a Caship!",
+        "subtitle": "Comparte metas, no deudas.",
+        "createAccount": "Crear cuenta",
+        "haveAccount": "¿Ya tienes una cuenta?",
+        "login": "Iniciar sesión"
+    }
+}

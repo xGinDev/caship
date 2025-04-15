@@ -1,14 +1,21 @@
+import { useAuth } from '@/hooks/useAuth';
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { ActivityIndicator } from 'react-native';
 
 export default function TabLayout() {
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-         /*  display: 'none' */
+          display: session ? 'flex' : 'none'
         }
       }}>
       <Tabs.Screen
@@ -20,7 +27,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="login"
         options={{
-          /* href: null */
+          href: session && null
         }}
       />
     </Tabs>

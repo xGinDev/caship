@@ -1,0 +1,9 @@
+{
+    "auth": {
+        "title": "Welcome to Caship!",
+        "subtitle": "Share goals, not debts.",
+        "createAccount": "Create account",
+        "haveAccount": "Already have an account?",
+        "login": "Log in"
+    }
+}

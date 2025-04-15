@@ -1,22 +1,21 @@
-import { SafeAreaView, Text } from "react-native";
-import { useEffect, useState } from "react";
-import { Session } from "@supabase/supabase-js";
-import { supabase } from "@/utils/supabase";
+import { Redirect } from "expo-router";
+import { ActivityIndicator, Text, View } from "react-native";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function HomeScreen() {
-  const [session, setSession] = useState<Session | null>(null)
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-  }, [])
+  const { session, loading } = useAuth();
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  if (!session) {
+    return <Redirect href="/login" />;
+  }
 
   return (
-    <SafeAreaView className="bg-primary h-full flex flex-col justify-center items-center">
-      {session && session.user && <Text>{session.user.id}</Text>}
-    </SafeAreaView>
+    <View>
+      <Text>Bienvenido {session.user?.email}</Text>
+    </View>
   );
 }
