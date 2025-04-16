@@ -1,9 +1,32 @@
 {
+    "tabBar": {
+        "home": "Home",
+        "profile": "Profile",
+        "movements": "Movements",
+        "savingsGoals": "Savings Goals"
+    },
     "auth": {
         "title": "Welcome to Caship!",
         "subtitle": "Share goals, not debts.",
         "createAccount": "Create account",
         "haveAccount": "Already have an account?",
-        "login": "Log in"
+        "login": "Log in",
+        "logout": "Logout"
+    },
+    "login": {
+        "title": "Login into account",
+        "subtitle": "Welcome back! Let’s continue learning",
+        "or": "or",
+        "withEmail": "Continue with email",
+        "withGoogle": "Continue with Google",
+        "withApple": "Continue with Apple",
+        "email": "Email",
+        "placeholderEmail": "johndoe@example.com",
+        "password": "Password",
+        "placeholderPassword": "Enter your password",
+        "login": "Log in",
+        "forgotPassword": "Forgot password?",
+        "error": "Oops! Email or password incorrect try another one.",
+        "terms": "By using Caship, you agree to the Terms and Privacy Policy."
     }
 }

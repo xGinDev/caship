@@ -1,6 +1,7 @@
 import { Redirect } from "expo-router";
-import { ActivityIndicator, Text, View } from "react-native";
+import { ActivityIndicator, SafeAreaView, Text, View } from "react-native";
 import { useAuth } from "@/hooks/useAuth";
+import Header from "@/components/Header/Header";
 
 export default function HomeScreen() {
   const { session, loading } = useAuth();
@@ -14,8 +15,8 @@ export default function HomeScreen() {
   }
 
   return (
-    <View>
-      <Text>Bienvenido {session.user?.email}</Text>
-    </View>
+    <SafeAreaView className="h-full flex flex-col gap-6 pb-28 pt-8 px-4">
+      <Header />
+    </SafeAreaView>
   );
 }

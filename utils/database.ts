@@ -14,7 +14,6 @@ export const initDatabase = () => {
 export const saveSession = async (session: string) => {
   try {
     db.runSync("INSERT INTO sessions (session) VALUES (?)", [session]);
-    console.log("Sesión guardada en SQLite");
   } catch (error) {
     console.error("Error al guardar sesión:", error);
     throw error;
